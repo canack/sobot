@@ -26,11 +26,12 @@ func main(){
     file := "/home/user/Desktop/photo.jpg"
     comment := "Have a nice day!"
 
+    // you can activate debugging with Share(true)
     // Sharing on Instagram
-    sobot.Instagram(username, password).SetFile(file).SetCaption(comment).Share().Debug(true)
+    sobot.Instagram(username, password).SetFile(file).SetCaption(comment).Share(true)
 	
     // Sharing on Twitter
-    sobot.Twitter(username, password).SetFile(file).SetCaption(comment).Share().Debug(true)
+    sobot.Twitter(username, password).SetFile(file).SetCaption(comment).Share(true)
 }
 ```
 
