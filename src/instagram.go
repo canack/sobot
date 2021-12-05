@@ -21,7 +21,7 @@ func (user *AccountInfo) firstInstagramRun() {
 	log.Println("First run for ", user.Username, " on ", user.Pname)
 
 	// first section
-	page := rod.New().MustConnect().MustPage("about:blank")
+	page := rod.New().SlowMotion(time.Second * 2).MustConnect().MustPage("about:blank")
 
 	page.MustEmulate(rod_device)
 
@@ -91,7 +91,7 @@ func (user *AccountInfo) cookieInstagramRun() {
 	log.Println("Found cookie for ", user.Username)
 
 	// first section
-	page := rod.New().MustConnect().MustPage("about:blank")
+	page := rod.New().SlowMotion(time.Second * 2).MustConnect().MustPage("about:blank")
 
 	page.MustEmulate(rod_device)
 

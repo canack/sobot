@@ -18,7 +18,7 @@ func (user *AccountInfo) firstTwitterRun() {
 	os.MkdirAll("src/account_data/twitter/"+user.Username, os.ModePerm)
 	log.Println("First run for ", user.Username, " on ", user.Pname)
 
-	page := rod.New().MustConnect().MustPage("about:blank")
+	page := rod.New().SlowMotion(time.Second * 2).MustConnect().MustPage("about:blank")
 
 	page.MustEmulate(rod_device)
 
@@ -84,7 +84,7 @@ func (user *AccountInfo) cookieTwitterRun() {
 	log.Println("Found cookie for ", user.Username)
 
 	// first section
-	page := rod.New().MustConnect().MustPage("about:blank")
+	page := rod.New().SlowMotion(time.Second * 2).MustConnect().MustPage("about:blank")
 
 	page.MustEmulate(rod_device)
 
