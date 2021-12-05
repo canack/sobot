@@ -27,10 +27,10 @@ func main(){
     comment := "Have a nice day!"
 
     // Sharing on Instagram
-    sobot.Instagram(username, password).SetFile(file).SetCaption(comment).Share().Debug()
+    sobot.Instagram(username, password).SetFile(file).SetCaption(comment).Share().Debug(true)
 	
     // Sharing on Twitter
-    sobot.Twitter(username, password).SetFile(file).SetCaption(comment).Share().Debug()
+    sobot.Twitter(username, password).SetFile(file).SetCaption(comment).Share().Debug(true)
 }
 ```
 
