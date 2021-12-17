@@ -32,15 +32,15 @@ func (user *AccountInfo) firstTwitterRun() {
 
 	time.Sleep(time.Second * 3)
 
-	page.MustElementX("/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[5]/label/div/div[2]/div/input").MustInput(user.Username)
-	page.MustElementX("/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[6]/div").MustClick()
-	page.MustElementX("/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/label/div/div[2]/div[1]/input").MustInput(user.Password)
-	page.MustElementX("/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div/div").MustClick()
+	page.MustElementX("/html/body/div/div/div/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[5]/label/div/div[2]/div/input").MustInput(user.Username)
+	page.MustElementX("/html/body/div/div/div/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[6]/div/span").MustClick()
+	page.MustElementX("/html/body/div/div/div/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[3]/div/label/div/div[2]/div[1]/input").MustInput(user.Password)
+	page.MustElementX("/html/body/div/div/div/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div/div/span").MustClick()
 
 	// This section makes the first login to the account and reports if the password is wrong
 	time.Sleep(time.Second * 7)
 
-	_, err := page.Timeout(time.Second * 5).ElementX("/html/body/div/div/div/div[1]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[1]/div[1]/span")
+	_, err := page.Timeout(time.Second * 5).ElementX("/html/body/div/div/div/div[1]/div/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[1]/div/div[1]/div[1]/span")
 
 	if err == nil {
 		page.Close()
