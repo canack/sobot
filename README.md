@@ -7,6 +7,7 @@ Social media post sharing tool
 - The application has a stable beta version. Errors that will occur will be on the selector codes.
 - For now it only has instagram and twitter support.
 - Saves screenshots for bug tracking
+- Username and password are used for first login only. Then it continues over the cookie.
 
 ## Usage/Examples
 
@@ -35,6 +36,22 @@ func main(){
 }
 ```
 
+---
+### By default, Rod will disable the browser's UI to maximize the performance. But when developing an automation task we usually care more about the ease of debugging. Rod provides a lot of solutions to help you debug the code.
+
+ Let's create a ".rod" config file under the current working directory. The content is:
+
+```show```
+
+---
+
+The automated operations are too fast for human eyes to catch, to debug them we usually enable the visual trace config, let's update the ".rod" file:
+
+```
+show
+trace
+```
+---
 
 ## Routemap
 
