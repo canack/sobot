@@ -17,7 +17,7 @@ var (
 
 func (user *AccountInfo) firstInstagramRun() {
 
-	os.MkdirAll("src/account_data/instagram/"+user.Username, os.ModePerm)
+	os.MkdirAll("account_data/instagram/"+user.Username, os.ModePerm)
 	log.Println("First run for ", user.Username, " on ", user.Pname)
 
 	// first section
@@ -59,7 +59,7 @@ func (user *AccountInfo) firstInstagramRun() {
 	log.Println("Wait 3 second for get cookies successful.")
 	time.Sleep(time.Second * 3)
 
-	f, err := os.Create("src/account_data/instagram/" + user.Username + "/cookie.dat")
+	f, err := os.Create("account_data/instagram/" + user.Username + "/cookie.dat")
 
 	if err != nil {
 		log.Fatal("We got an error at creating cookie data file\n", err)
@@ -95,7 +95,7 @@ func (user *AccountInfo) cookieInstagramRun() {
 
 	page.MustEmulate(rod_device)
 
-	file, err := os.Open("src/account_data/instagram/" + user.Username + "/cookie.dat")
+	file, err := os.Open("account_data/instagram/" + user.Username + "/cookie.dat")
 
 	if err != nil {
 		log.Fatalf(user.Username, user.Pname, " cookie read error: %s", err)
@@ -164,7 +164,7 @@ func (user *AccountInfo) cookieInstagramRun() {
 
 func (user *AccountInfo) shareInstagram(debug bool) {
 
-	_, err := os.ReadFile("src/account_data/instagram/" + user.Username + "/cookie.dat")
+	_, err := os.ReadFile("account_data/instagram/" + user.Username + "/cookie.dat")
 	watch_instagram = debug
 	if err != nil {
 

@@ -15,7 +15,7 @@ var watch_twitter bool
 
 func (user *AccountInfo) firstTwitterRun() {
 
-	os.MkdirAll("src/account_data/twitter/"+user.Username, os.ModePerm)
+	os.MkdirAll("account_data/twitter/"+user.Username, os.ModePerm)
 	log.Println("First run for ", user.Username, " on ", user.Pname)
 
 	page := rod.New().SlowMotion(time.Second * 2).MustConnect().MustPage("about:blank")
@@ -53,7 +53,7 @@ func (user *AccountInfo) firstTwitterRun() {
 	log.Println("Wait 3 second for get cookies successful.")
 	time.Sleep(time.Second * 3)
 
-	f, err := os.Create("src/account_data/twitter/" + user.Username + "/cookie.dat")
+	f, err := os.Create("account_data/twitter/" + user.Username + "/cookie.dat")
 
 	if err != nil {
 		log.Fatal("We got an error at creating cookie data file\n", err)
@@ -88,7 +88,7 @@ func (user *AccountInfo) cookieTwitterRun() {
 
 	page.MustEmulate(rod_device)
 
-	file, err := os.Open("src/account_data/twitter/" + user.Username + "/cookie.dat")
+	file, err := os.Open("account_data/twitter/" + user.Username + "/cookie.dat")
 
 	if err != nil {
 		log.Fatalf(user.Username, user.Pname, " cookie read error: %s", err)
@@ -144,7 +144,7 @@ func (user *AccountInfo) cookieTwitterRun() {
 
 func (user *AccountInfo) shareTwitter(debug bool) {
 
-	_, err := os.ReadFile("src/account_data/twitter/" + user.Username + "/cookie.dat")
+	_, err := os.ReadFile("account_data/twitter/" + user.Username + "/cookie.dat")
 
 	watch_twitter = debug
 
