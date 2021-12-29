@@ -15,7 +15,7 @@ Social media post sharing tool
 package main
 
 import (
-    "github.com/canack/sobot/src"
+    "github.com/canack/sobot/pkg"
 )
 
 func main(){
